@@ -1,0 +1,12 @@
+{
+  "Id": "ADOFAI.SpeedModeAutoLenient",
+  "DisplayName": "Speed Mode Auto Lenient",
+  "Author": "LT_JJ",
+  "Version": "1.1.0",
+  "ManagerVersion": "0.27.0",
+  "Requirements": [],
+  "AssemblyName": "ADOFAI.SpeedModeAutoLenient.dll",
+  "EntryMethod": "ADOFAI.SpeedModeAutoLenient.Main.Load",
+  "HomePage": "",
+  "Repository": ""
+}

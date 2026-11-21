@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    机器相关配置（游戏路径）放在 local.props，不入库。
+    复制 local.props.example 为 local.props 并改好 GameManaged 即可，或构建时传 -p:GameManaged="...\Managed"。
+  -->
+  <Import Project="$(MSBuildThisFileDirectory)local.props" Condition="Exists('$(MSBuildThisFileDirectory)local.props')" />
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>ADOFAI.SpeedModeAutoLenient</AssemblyName>
+    <RootNamespace>ADOFAI.SpeedModeAutoLenient</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <OutputType>Library</OutputType>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Product>Speed Mode Auto Lenient</Product>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <OutputPath>..\dist\ADOFAI.SpeedModeAutoLenient\</OutputPath>
+    <GameManaged Condition="'$(GameManaged)' == ''">$(ADOFAI_MANAGED)</GameManaged>
+  </PropertyGroup>
+
+  <Target Name="EnsureGameManaged" BeforeTargets="ResolveAssemblyReferences"
+          Condition="'$(GameManaged)' == '' or !Exists('$(GameManaged)\Assembly-CSharp.dll')">
+    <Error Text="找不到游戏 Managed 目录：请复制 src/local.props.example 为 src/local.props 并填好 GameManaged，或用 -p:GameManaged=&quot;&lt;游戏&gt;_Data\Managed&quot; 传入。" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- UMM 元数据：仓库根目录一份，构建时随产物一起输出 -->
+    <None Include="..\Info.json" Link="Info.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameManaged)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="RDTools">
+      <HintPath>$(GameManaged)\RDTools.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameManaged)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameManaged)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(GameManaged)\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>$(GameManaged)\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(GameManaged)\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(GameManaged)\UnityModManager\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>$(GameManaged)\UnityModManager\UnityModManager.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

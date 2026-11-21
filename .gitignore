@@ -1,0 +1,17 @@
+# Build intermediates
+src/bin/
+src/obj/
+
+# Machine-specific config (game path)
+src/local.props
+
+# Packages / archives
+*.zip
+*.nupkg
+
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+*.DotSettings.user

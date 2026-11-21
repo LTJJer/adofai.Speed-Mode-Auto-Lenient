@@ -1,0 +1,6 @@
+<Project>
+  <!-- 复制本文件为 local.props（不入库），填入本机游戏 Managed 目录 -->
+  <PropertyGroup>
+    <GameManaged>F:\SteamLibrary\steamapps\common\A Dance of Fire and Ice\A Dance of Fire and Ice_Data\Managed</GameManaged>
+  </PropertyGroup>
+</Project>
