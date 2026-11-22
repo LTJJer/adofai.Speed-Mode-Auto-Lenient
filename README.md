@@ -1,48 +1,13 @@
 # Speed Mode Auto Lenient
 
-《A Dance of Fire and Ice》关卡编辑器辅助 Mod：按 `Ctrl + Shift + Space` 以**原版 Ctrl 倍速**开始试玩，
-同时把判定**自动切换到宽松**（可改为标准 / 严格 / 不改变）。回到编辑器时自动还原。
-
-- **不改速度、不改音高**：速度完全沿用游戏设置里的「快捷播放速度」，行为与 `Ctrl + Space` 一致
-- **只改判定**，且仅在一次试玩内有效，退出即还原
-- 基于 UnityModManager + Harmony，无其它依赖
+《A Dance of Fire and Ice》关卡编辑器内的辅助 Mod：按 `Ctrl + Shift + Space` 以原版 Ctrl 倍速开始铺面，
+同时把判定**临时切换到宽松**（可在 Mod 配置里改 标准 / 严格 / 不改变）。回到编辑器时自动还原。
 
 ## 安装
 
 前置：游戏已安装 [UnityModManager](https://www.nexusmods.com/site/mods/21)。
 
-1. 取 `dist/ADOFAI.SpeedModeAutoLenient` 整个文件夹
-2. 复制到 `<游戏目录>/Mods/`
-3. 启动游戏，`Ctrl + F10` 打开 UMM 面板能看到 **Speed Mode Auto Lenient** 即成功
-
-有发布包时也可把 zip 直接拖进 UMM 窗口安装。
-
-## 使用
-
-| 操作 | 行为 |
-| --- | --- |
-| `Ctrl + Shift + Space` | 以原版 Ctrl 倍速 + 配置的判定开始试玩 |
-| `Esc` | 回到编辑器，判定自动还原 |
-| `Space` / `Ctrl + Space` / `Shift + Space` | 原版行为，不受本 Mod 影响 |
-
-## 配置
-
-`Mods/ADOFAI.SpeedModeAutoLenient/settings.json`（首次启动自动生成）：
-
-```json
-{
-  "difficulty": "Lenient"
-}
-```
-
-| 取值 | 说明 |
-| --- | --- |
-| `Lenient` | 宽松（默认） |
-| `Normal` | 标准 |
-| `Strict` | 严格 |
-| `None` | 不改变当前判定 |
-
-也可以在 UMM 面板（`Ctrl + F10`）里直接点选，改动会立刻写回该文件。
+下载 Release 里的 zip 并通过 UnityModManager 安装。
 
 ## 从源码构建
 
